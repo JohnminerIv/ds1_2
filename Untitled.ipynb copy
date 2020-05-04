@@ -1,0 +1,165 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "raw_data = {'name': ['Willard Morris', 'Al Jennings', 'Omar Mullins', 'Spencer McDaniel'],\n",
+    "                                 'age': [20, 19, 22, 21],\n",
+    "                                 'favorite_color': ['blue', 'blue', 'yellow', \"green\"],\n",
+    "                                 'grade': [88, 92, 95, 70]}\n",
+    "df = pd.DataFrame(raw_data)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>age</th>\n",
+       "      <th>favorite_color</th>\n",
+       "      <th>grade</th>\n",
+       "      <th>name</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>19</td>\n",
+       "      <td>blue</td>\n",
+       "      <td>92</td>\n",
+       "      <td>Al Jennings</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>22</td>\n",
+       "      <td>yellow</td>\n",
+       "      <td>95</td>\n",
+       "      <td>Omar Mullins</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   age favorite_color  grade          name\n",
+       "1   19           blue     92   Al Jennings\n",
+       "2   22         yellow     95  Omar Mullins"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[((df['favorite_color'] == 'yellow')|(df['favorite_color'] == 'blue')) & (df['grade'] > 90)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (<ipython-input-10-5c99b715e574>, line 3)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-10-5c99b715e574>\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    if df[(df['favorite_color'] == color)]\u001b[0m\n\u001b[0m                                          ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "def color_finder(ls):\n",
+    "    for color in ls:\n",
+    "        if df[(df['favorite_color'] == color)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def find_pairs(ls, target):\n",
+    "    pairs = []\n",
+    "    for num1 in range(len(ls)):\n",
+    "        for num2 in range(num1 + 1, len(ls)):\n",
+    "            if ls[num1] + ls[num2] == target:\n",
+    "                pairs.append((ls[num1], ls[num2]))\n",
+    "    return pairs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[(3, 7), (6, 4), (8, 2)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(find_pairs([5, 3, 6, 8, 2,4,7], 10))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "ds_env",
+   "language": "python",
+   "name": "ds_env"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.16"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
